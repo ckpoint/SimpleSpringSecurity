@@ -132,4 +132,4 @@ public class AccountController {
 }
 ```
 
-#### ? If the parameter of the controller extends SimpleUserDetails, it automatically passes the information stored in the session to the controller parameter.
+#### !! If the parameter of the controller extends SimpleUserDetails, it automatically passes the information stored in the session to the controller parameter.
