@@ -11,10 +11,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Simple user details.
+ */
 public abstract class SimpleUserDetails implements UserDetails {
 
     private static String DEFAULT_NONE_ROLE = "NONE";
 
+    /**
+     * Update from obj simple user details.
+     *
+     * @param object the object
+     * @return the simple user details
+     */
     public SimpleUserDetails updateFromObj(Object object) {
         ObjectGenerator.enableFieldModelMapper().map(object, this);
         return this;
@@ -57,7 +66,17 @@ public abstract class SimpleUserDetails implements UserDetails {
     @Override
     public abstract String getUsername();
 
+    /**
+     * Gets role.
+     *
+     * @return the role
+     */
     protected abstract String getRole();
 
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
     protected abstract List<String> getRoles();
 }

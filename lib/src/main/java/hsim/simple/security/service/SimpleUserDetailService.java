@@ -6,6 +6,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+/**
+ * The type Simple user detail service.
+ */
 @RequiredArgsConstructor
 public class SimpleUserDetailService implements UserDetailsService {
 

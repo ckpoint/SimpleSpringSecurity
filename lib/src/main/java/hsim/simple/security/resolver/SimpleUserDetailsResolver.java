@@ -10,6 +10,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+/**
+ * The type Simple user details resolver.
+ */
 @RequiredArgsConstructor
 public class SimpleUserDetailsResolver implements HandlerMethodArgumentResolver {
 

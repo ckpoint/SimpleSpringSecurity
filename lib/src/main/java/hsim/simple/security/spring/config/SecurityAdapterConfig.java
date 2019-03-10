@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.*;
 import java.util.List;
 
 /**
- *
+ * The type Security adapter config.
  */
 @Slf4j
 @RequiredArgsConstructor
