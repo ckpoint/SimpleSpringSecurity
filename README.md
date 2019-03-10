@@ -26,7 +26,9 @@ Simple Spring Security depends on [Model Mapper](https://github.com/modelmapper/
 ## Table of Contents
 - [ 1. Add Simple UserDetails ](#add-simple-userdetails)
 - [ 2. Add Simple Spring Security Service](#add-simple-spring-security-service)
-- [ 3. Add Login Controller ](#add-login-controller)
+- [ 3. Change Password Encoder (Optional)](#change-password-encoder)
+- [ 4. Encode password ](#encode-password)
+- [ 5. Add Login Controller ](#add-login-controller)
 
 ## Add Simple UserDetails
 
@@ -63,6 +65,38 @@ public class TestUserDetail extends SimpleUserDetails {
     }
 }
 ```
+
+## Change Password Encoder (Optional)
+
+#### Simply override the createPasswordEncoder function in the SimpleSecurityService and return the encoder you want to use.
+#### The default password encoder is BCryptPasswordEncoder.
+
+```java
+
+@Service
+@RequiredArgsConstructor
+public class TestSecurityService extends SimpleSecurityService {
+
+    ....
+
+    @Override
+    protected PasswordEncoder createPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+
+```
+
+
+## Encode Password
+
+#### The password encoder, currently used by security, is stored by the simplePasswordEncoder class.
+#### You can encrypt the plaintext by calling SimplePasswordEncoder encodePassword function.
+
+```java
+    SimplePasswordEncoder.encodePassword("1234");
+```
+
 ## Add Simple Spring Security Service
 
 
