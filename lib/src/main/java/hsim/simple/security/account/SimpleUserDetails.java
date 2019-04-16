@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * The type Simple user details.
  */
 @Data
-public abstract class SimpleUserDetails implements UserDetails {
+public class SimpleUserDetails implements UserDetails {
 
     private static String DEFAULT_NONE_ROLE = "NONE";
 
