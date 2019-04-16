@@ -26,14 +26,4 @@ public class TestSecurityService extends SimpleSecurityService {
                 .anyRequest().authenticated();
     }
 
-    @Override
-    public boolean isUseCsrf() {
-        return false;
-    }
-
-    @Override
-    public boolean isUseCors() {
-        return true;
-    }
-
 }

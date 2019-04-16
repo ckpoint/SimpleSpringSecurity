@@ -1,5 +1,6 @@
 package hsim.simple.security.spring.config;
 
+import hsim.simple.security.config.SimpleSecurityProperties;
 import hsim.simple.security.service.SimpleSecurityService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,10 @@ public class SecurityAdapterConfig extends WebSecurityConfigurerAdapter implemen
     @NonNull
     private final SimpleSecurityService simpleSecurityService;
 
+
+    @NonNull
+    private final SimpleSecurityProperties properties;
+
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
@@ -36,7 +41,7 @@ public class SecurityAdapterConfig extends WebSecurityConfigurerAdapter implemen
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        if (!this.simpleSecurityService.isUseCsrf()) {
+        if (!this.properties.isEnableCsrf()) {
             http = http.csrf().disable();
         }
         http = http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and();
