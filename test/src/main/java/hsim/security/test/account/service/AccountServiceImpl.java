@@ -25,7 +25,7 @@ public class AccountServiceImpl implements AccountService {
 
         AccountModel exist = this.findAccountFromUserName(accountModel.getUserName());
         if (exist != null) {
-            throw new DuplicateKeyException("aleay exist userName");
+            throw new DuplicateKeyException("already exist userName");
         }
 
         Account joinUser = Account.createFromModel(accountModel);
