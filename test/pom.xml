@@ -43,6 +43,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.ckpoint</groupId>
+            <artifactId>simple-spring-security</artifactId>
+            <version>0.0.3</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

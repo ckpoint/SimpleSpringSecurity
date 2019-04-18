@@ -4,7 +4,9 @@ import hsim.simple.security.account.SimpleUserDetails;
 import hsim.simple.security.config.SimpleSecurityProperties;
 import hsim.simple.security.resolver.SimpleUserDetailsResolver;
 import hsim.simple.security.spring.config.SecurityAdapterConfig;
+import hsim.simple.security.util.EmptyPasswordEncoder;
 import hsim.simple.security.util.ObjectGenerator;
+import hsim.simple.security.util.PlainTextPasswordEncoder;
 import hsim.simple.security.util.SimplePasswordEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.format.FormatterRegistry;
@@ -108,7 +110,16 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        this.passwordEncoder = createPasswordEncoder();
+        SimpleSecurityProperties properties = ObjectGenerator.get(SimpleSecurityProperties.class);
+
+        if (!properties.isUsePassword()) {
+            this.passwordEncoder = new EmptyPasswordEncoder();
+        } else if (!properties.isUsePasswordEncrypt()) {
+            this.passwordEncoder = new PlainTextPasswordEncoder();
+        } else {
+            this.passwordEncoder = createPasswordEncoder();
+        }
+
         SimplePasswordEncoder.initPasswordEncoder(this.passwordEncoder);
         return passwordEncoder;
     }

@@ -2,7 +2,6 @@ package hsim.simple.security.config;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 
 @Getter
 public class SimpleSecurityProperties {
@@ -24,4 +23,10 @@ public class SimpleSecurityProperties {
 
     @Value("${simple.security.cors.headers:*}")
     private String corsAllowedHeaders;
+
+    @Value("${simple.security.use.password:true}")
+    private boolean usePassword;
+
+    @Value("${simple.security.use.password.encrypt:true}")
+    private boolean usePasswordEncrypt;
 }

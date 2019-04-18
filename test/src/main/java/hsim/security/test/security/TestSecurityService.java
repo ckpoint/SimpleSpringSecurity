@@ -6,6 +6,7 @@ import hsim.simple.security.service.SimpleSecurityService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,4 +27,18 @@ public class TestSecurityService extends SimpleSecurityService {
                 .anyRequest().authenticated();
     }
 
+    @Override
+    protected PasswordEncoder createPasswordEncoder() {
+        return new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return rawPassword.toString();
+            }
+
+            @Override
+            public boolean matches(CharSequence rawPassword, String encodedPassword) {
+                return rawPassword.equals(encodedPassword);
+            }
+        };
+    }
 }
