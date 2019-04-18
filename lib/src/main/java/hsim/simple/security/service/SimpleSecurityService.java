@@ -1,6 +1,7 @@
 package hsim.simple.security.service;
 
 import hsim.simple.security.account.SimpleUserDetails;
+import hsim.simple.security.config.SimpleSecurityProperties;
 import hsim.simple.security.resolver.SimpleUserDetailsResolver;
 import hsim.simple.security.spring.config.SecurityAdapterConfig;
 import hsim.simple.security.util.ObjectGenerator;
@@ -32,6 +33,7 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
     private SecurityAdapterConfig securityAdapterConfig;
     private PasswordEncoder passwordEncoder;
     private AuthenticationManager authenticationManager;
+    private SimpleSecurityProperties properties;
 
     /**
      * Login simple user details.
@@ -84,6 +86,12 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
         return ObjectGenerator.enableFieldModelMapper().map(principal, type);
     }
 
+    @Bean
+    public SimpleSecurityProperties simpleSecurityProperties() {
+        this.properties = new SimpleSecurityProperties();
+        return this.properties;
+    }
+
 
     /**
      * User detail service simple user detail service.
@@ -114,7 +122,7 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      */
     @Bean
     public SecurityAdapterConfig springSecurityConfig() {
-        this.securityAdapterConfig = new SecurityAdapterConfig(this);
+        this.securityAdapterConfig = new SecurityAdapterConfig(this, this.properties);
         return this.securityAdapterConfig;
     }
 
@@ -170,8 +178,10 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      * @param registry the registry
      */
     public void addCorsMappings(CorsRegistry registry) {
-        if (isUseCors()) {
-            registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").allowedHeaders("*");
+
+        if (this.properties.isEnableCors()) {
+            registry.addMapping(this.properties.getCorsMappingUrl()).allowedOrigins(this.properties.getCorsAllowedOrigins())
+                    .allowedMethods(this.properties.getCorsAllowedMethods()).allowedHeaders(this.properties.getCorsAllowedHeaders());
         }
     }
 
@@ -278,20 +288,6 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      */
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
     }
-
-    /**
-     * Is use csrf boolean.
-     *
-     * @return the boolean
-     */
-    public abstract boolean isUseCsrf();
-
-    /**
-     * Is use cors boolean.
-     *
-     * @return the boolean
-     */
-    public abstract boolean isUseCors();
 
     /**
      * Create password encoder password encoder.

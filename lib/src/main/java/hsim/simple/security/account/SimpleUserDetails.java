@@ -1,11 +1,13 @@
 package hsim.simple.security.account;
 
 import hsim.simple.security.util.ObjectGenerator;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -14,9 +16,15 @@ import java.util.stream.Collectors;
 /**
  * The type Simple user details.
  */
-public abstract class SimpleUserDetails implements UserDetails {
+@Data
+public class SimpleUserDetails implements UserDetails {
 
     private static String DEFAULT_NONE_ROLE = "NONE";
+
+    private String username;
+    private String password;
+    private String role;
+    private List<String> roles;
 
     /**
      * Update from obj simple user details.
@@ -60,23 +68,10 @@ public abstract class SimpleUserDetails implements UserDetails {
         return true;
     }
 
-    @Override
-    public abstract String getPassword();
-
-    @Override
-    public abstract String getUsername();
-
-    /**
-     * Gets role.
-     *
-     * @return the role
-     */
-    protected abstract String getRole();
-
-    /**
-     * Gets roles.
-     *
-     * @return the roles
-     */
-    protected abstract List<String> getRoles();
+    public void addRole(String role) {
+        if (this.roles == null) {
+            this.roles = new ArrayList<>();
+        }
+        this.roles.add(role);
+    }
 }

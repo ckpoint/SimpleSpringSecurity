@@ -12,13 +12,13 @@ Simple Spring Security depends on [Model Mapper](https://github.com/modelmapper/
 <dependency>
   <groupId>com.github.ckpoint</groupId>
   <artifactId>simple-spring-security</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 
 ```
 #### 2. GRADLE
 ```gradle
-  compile group: 'com.github.ckpoint', name: 'simple-spring-security', version: '0.0.1'
+  compile group: 'com.github.ckpoint', name: 'simple-spring-security', version: '0.0.2'
 ```
 
 # Usage
@@ -29,6 +29,7 @@ Simple Spring Security depends on [Model Mapper](https://github.com/modelmapper/
 - [ 3. Change Password Encoder (Optional)](#change-password-encoder)
 - [ 4. Encode password ](#encode-password)
 - [ 5. Add Login Controller ](#add-login-controller)
+- [ 6. Properties ](#properties)
 
 ## Add Simple UserDetails
 
@@ -167,3 +168,13 @@ public class AccountController {
 ```
 
 #### !! If the parameter of the controller extends SimpleUserDetails, it automatically passes the information stored in the session to the controller parameter.
+
+
+## Properties
+
+#### simple.security.csrf.enable : csrf enable setting - default value true
+#### simple.security.cors.enable : cors enable setting - default value false
+#### simple.security.cors.url : cors mapping pattern - default value /**
+#### simple.security.cors.origins : cors origins setting - default value *
+#### simple.security.cors.methods : cors methods setting - default value *
+#### simple.security.cors.headers : cors headers setting - default value *
