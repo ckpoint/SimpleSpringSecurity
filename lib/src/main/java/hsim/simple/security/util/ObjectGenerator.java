@@ -1,14 +1,20 @@
 package hsim.simple.security.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
 import org.modelmapper.convention.MatchingStrategies;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * The type Object generator.
  */
+@Slf4j
 public class ObjectGenerator {
 
+    private static Map<Class<?>, Object> instanceMap = new HashMap();
     /**
      * Default model mapper model mapper.
      *
@@ -49,6 +55,30 @@ public class ObjectGenerator {
      */
     public static ModelMapper enableFieldModelMapper() {
         return enableFieldModelMapper(Configuration.AccessLevel.PRIVATE);
+    }
+
+
+    /**
+     * Get t.
+     *
+     * @param <T>   the type parameter
+     * @param cType the c type
+     * @return the t
+     */
+    public synchronized static <T> T get(Class<T> cType) {
+
+        if( instanceMap.get(cType) != null){
+            return cType.cast(instanceMap.get(cType));
+        }
+
+        try {
+            Object obj = cType.newInstance();
+            instanceMap.put(cType, obj);
+            return cType.cast(obj);
+        } catch (InstantiationException | IllegalAccessException e) {
+            log.debug(e.getMessage());
+        }
+        return null;
     }
 
 

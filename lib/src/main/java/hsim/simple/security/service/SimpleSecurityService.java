@@ -33,7 +33,6 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
     private SecurityAdapterConfig securityAdapterConfig;
     private PasswordEncoder passwordEncoder;
     private AuthenticationManager authenticationManager;
-    private SimpleSecurityProperties properties;
 
     /**
      * Login simple user details.
@@ -88,8 +87,7 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
 
     @Bean
     public SimpleSecurityProperties simpleSecurityProperties() {
-        this.properties = new SimpleSecurityProperties();
-        return this.properties;
+        return ObjectGenerator.get(SimpleSecurityProperties.class);
     }
 
 
@@ -122,7 +120,7 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      */
     @Bean
     public SecurityAdapterConfig springSecurityConfig() {
-        this.securityAdapterConfig = new SecurityAdapterConfig(this, this.properties);
+        this.securityAdapterConfig = new SecurityAdapterConfig(this, ObjectGenerator.get(SimpleSecurityProperties.class));
         return this.securityAdapterConfig;
     }
 
@@ -179,9 +177,11 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      */
     public void addCorsMappings(CorsRegistry registry) {
 
-        if (this.properties.isEnableCors()) {
-            registry.addMapping(this.properties.getCorsMappingUrl()).allowedOrigins(this.properties.getCorsAllowedOrigins())
-                    .allowedMethods(this.properties.getCorsAllowedMethods()).allowedHeaders(this.properties.getCorsAllowedHeaders());
+        SimpleSecurityProperties properties = ObjectGenerator.get(SimpleSecurityProperties.class);
+
+        if (properties.isEnableCors()) {
+            registry.addMapping(properties.getCorsMappingUrl()).allowedOrigins(properties.getCorsAllowedOrigins())
+                    .allowedMethods(properties.getCorsAllowedMethods()).allowedHeaders(properties.getCorsAllowedHeaders());
         }
     }
 
@@ -295,7 +295,7 @@ public abstract class SimpleSecurityService extends SecurityContextHolder {
      * @return the password encoder
      */
     protected PasswordEncoder createPasswordEncoder() {
-        return new BCryptPasswordEncoder();
+        return ObjectGenerator.get(BCryptPasswordEncoder.class);
     }
 
 
