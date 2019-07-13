@@ -21,7 +21,7 @@ public class SimpleUserDetailsResolver implements HandlerMethodArgumentResolver 
 
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
-        return methodParameter.getParameterType().getSuperclass().equals(SimpleUserDetails.class);
+        return SimpleUserDetails.class.equals(methodParameter.getParameterType().getSuperclass());
     }
 
     @Override
