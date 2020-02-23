@@ -28,4 +28,8 @@ public class SimplePasswordEncoder {
     public static String encodePassword(@NonNull String plainPassword) {
         return passwordEncoder.encode(plainPassword);
     }
+
+    public static boolean matches(String plainPassword, String encryptPassword) {
+        return passwordEncoder.matches(plainPassword, encryptPassword);
+    }
 }
