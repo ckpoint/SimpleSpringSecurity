@@ -12,13 +12,13 @@ Simple Spring Security depends on [Model Mapper](https://github.com/modelmapper/
 <dependency>
   <groupId>com.github.ckpoint</groupId>
   <artifactId>simple-spring-security</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
 </dependency>
 
 ```
 #### 2. GRADLE
 ```gradle
-  compile group: 'com.github.ckpoint', name: 'simple-spring-security', version: '0.0.3'
+  compile group: 'com.github.ckpoint', name: 'simple-spring-security', version: '0.0.4'
 ```
 
 # Usage
