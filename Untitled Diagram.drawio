@@ -1,1 +1,31 @@
-<mxfile host="app.diagrams.net" modified="2020-09-15T09:32:25.636Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" version="13.6.10" etag="bYmsYQL4NOwjg1Gh2Gqa" type="github"><diagram id="ia8z2bvt_PQ8li6_763I">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-09-22T11:40:37.304Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="xb5s27tDw-X42z7oGboa" version="13.7.3" type="github">
+  <diagram id="ia8z2bvt_PQ8li6_763I" name="Page-1">
+    <mxGraphModel dx="1666" dy="745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-1" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://image.freepik.com/free-vector/golf-field-flag-green-grass-tree-outdoor-sport-landscape_7081-1920.jpg;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="720.48" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-2" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.wifi;pointerEvents=1" vertex="1" parent="1">
+          <mxGeometry x="110" y="180" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-3" value="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;와이파이 신호&amp;nbsp;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="230" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-4" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.wifi;pointerEvents=1" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-5" value="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;와이파이 신호&amp;nbsp;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="230" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-9" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.internet_gateway;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="370" y="90" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="pR3fjI3v96jKAgcNMkrV-10" value="&lt;span style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;그린데이터 HTTP 데이터 수집 API&lt;/b&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="349" y="170" width="111" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
